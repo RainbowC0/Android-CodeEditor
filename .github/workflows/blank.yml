@@ -15,15 +15,11 @@ jobs:
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
-    runs-on: macOS-10.15
+    runs-on: ubuntu-lastest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - uses: actions/checkout@v1
-      - uses: malinskiy/action-android/emulator-run-cmd@release/0.0.7
-        with:
-          cmd: ./gradlew assembleRelease
-          api: 25
-          tag: default
-          abi: x86
+      - name: build
+          run: ./gradlew assembleRelease
        
