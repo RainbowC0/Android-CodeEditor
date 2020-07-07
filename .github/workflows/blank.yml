@@ -19,11 +19,11 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-  - uses: actions/checkout@v1
-  - uses: malinskiy/action-android/emulator-run-cmd@release/0.0.7
-    with:
-      cmd: ./gradlew assembleRelease
-      api: 25
-      tag: default
-      abi: x86
+      - uses: actions/checkout@v1
+      - uses: malinskiy/action-android/emulator-run-cmd@release/0.0.7
+        with:
+          cmd: ./gradlew assembleRelease
+          api: 25
+          tag: default
+          abi: x86
        
