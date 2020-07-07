@@ -24,9 +24,9 @@ jobs:
       #- uses: malinskiy/action-android/emulator-run-cmd@release/0.0.7
       #- run: adb devices
       #- run: echo $ANDROID_HOME
-      - uses: malinskiy/action-android/emulator-run-cmd@release/0.0.7
-        with:
-          cmd: ./gradlew assembleRelease
-          api: 25
-          tag: default
-          abi: x86
+     # - uses: malinskiy/action-android/emulator-run-cmd@release/0.0.7
+        #with:
+      - run: ./gradlew assembleRelease
+          #api: 25
+          #tag: default
+         # abi: x86
