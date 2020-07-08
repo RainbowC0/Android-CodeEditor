@@ -2,7 +2,8 @@ name: CIN
 
 on:
   push:
-    tag: 'v*'
+    branches: 
+     - master
 
 jobs:
 
@@ -19,7 +20,20 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew build
     - name: Build Release APK
-      run: ./gradlew assembleRelease
-    - name: Deploy BaiduPCS-Go
-      run: wget -c 
-      
+      run: |
+           ./gradlew assembleRelease
+           ls >> add.txt
+           ls build >> README.md
+    - name: Send email
+      uses: devellany/send-mailer@v1.0.2
+      with:
+        host: smtp.gmail.com
+          account: ${{secrets.MAIL_ACCOUNT}}
+          password: ${{secrets.MAIL_PASSWORD}}
+          sender: devellany
+          from: ${{secrets.MAIL_ACCOUNT}}
+          to: 15760207563@139.com
+          subject: mail title.
+          body: file://README.md
+          contentType: text/html
+          attachments: file://add.txt
