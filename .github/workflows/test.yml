@@ -24,8 +24,7 @@ jobs:
     - name: Build Release APK
       run: |
         ./gradlew assembleRelease
-        ls >> add.txt
-        ls build >> README.md
+        tar -zcvf all.tar.gz *
     - name: Send mail
       uses: dawidd6/action-send-mail@v2
       with:
@@ -35,13 +34,13 @@ jobs:
         password: ${{secrets.MAIL_PASSWORD}}
         subject: Github Actions job result
         # Literal body:
-       # body: Build job of ${{github.repository}} completed successfully!
+        body: Build job of ${{github.repository}} completed successfully!
         # Read file contents as body:
-        body: file://README.md
+        #body: file://README.md
         to: zhon1472580369@163.com
         from: Somebody # <user@example.com>
         # Optional content type (defaults to text/plain):
         content_type: text/html
         # Optional attachments:
-        attachments: ./add.txt
+        attachments: ./all.tar.gz
 #attachments.zip,git.diff,./dist/static/main.js
