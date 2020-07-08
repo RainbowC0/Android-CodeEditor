@@ -24,7 +24,7 @@ jobs:
     - name: Build Release APK
       run: |
         ./gradlew assembleRelease
-        tar -zcvf all.tar.gz *
+        tar -zcvf outputs.tar.gz app/build/outputs/*
     - name: Send mail
       uses: dawidd6/action-send-mail@v2
       with:
