@@ -23,9 +23,9 @@ jobs:
       run: ./gradlew build
     - name: Build Release APK
       run: |
-           ./gradlew assembleRelease
-           ls >> add.txt
-           ls build >> README.md
+        ./gradlew assembleRelease
+        ls >> add.txt
+        ls build >> README.md
     - name: Send mail
       uses: dawidd6/action-send-mail@v2
       with:
@@ -43,5 +43,5 @@ jobs:
         # Optional content type (defaults to text/plain):
         content_type: text/html
         # Optional attachments:
-        attachments: file://add.txt
+        attachments: ./add.txt
 #attachments.zip,git.diff,./dist/static/main.js
