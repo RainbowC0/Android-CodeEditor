@@ -29,7 +29,7 @@ jobs:
     - name: Send mail
       uses: dawidd6/action-send-mail@v2
       with:
-        server_address: smtp.gmail.com
+        server_address: ${{secrets.MAIL_HOST}}
         server_port: 465
         username: ${{secrets.MAIL_ACCOUNT}}
         password: ${{secrets.MAIL_PASSWORD}}
@@ -38,7 +38,7 @@ jobs:
        # body: Build job of ${{github.repository}} completed successfully!
         # Read file contents as body:
         body: file://README.md
-        to: 15760207563@139.com
+        to: zhon1472580369@163.com
         from: Somebody # <user@example.com>
         # Optional content type (defaults to text/plain):
         content_type: text/html
